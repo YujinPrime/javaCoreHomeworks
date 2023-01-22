@@ -4,11 +4,12 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class MyArrayList <E>{
+    private static final int DEFAULT_CAPACITY = 10;
     private Object[] arrayList;
     private int size = 0;
 
     public MyArrayList() {
-        arrayList = new Object[10];
+        arrayList = new Object[DEFAULT_CAPACITY];
     }
 
     public MyArrayList(int initialCapacity) {
@@ -26,38 +27,25 @@ public class MyArrayList <E>{
         arrayList[size++] = element;
     }
 
-//    private void ensureCapacity(int requiredCapacity) {
-//        if (requiredCapacity > arrayList.length) {
-//            int newLength = arrayList.length * 2;
-//            arrayList = Arrays.copyOf(arrayList, newLength);
-//        }
-//    }
     private void ensureCapacity(int requiredCapacity) {
         int newLength;
         if (arrayList.length == 0) {
-            newLength = 2;
+            newLength = DEFAULT_CAPACITY;
             arrayList = Arrays.copyOf(arrayList, newLength);
-        }else if (requiredCapacity > arrayList.length && arrayList.length > 0) {
+        }else if (requiredCapacity > arrayList.length) {
             newLength = arrayList.length * 2;
             arrayList = Arrays.copyOf(arrayList, newLength);
         }
-
     }
 
     public void remove(int index) {
-        if (index < 0 || index >= size) {
-            throw new IndexOutOfBoundsException();
-        }
-        for (int i = index; i < size - 1; i++) {
-            arrayList[i] = arrayList[i + 1];
-        }
-        arrayList[size - 1] = null;
-        size--;
+        Objects.checkIndex(index, size);
+        System.arraycopy(arrayList, index + 1, arrayList, index, arrayList.length - index - 1);
+        arrayList[--size] = null;
     }
 
     public void clear(){
-        Object[] objects = {};
-        arrayList = Arrays.copyOf(objects, arrayList.length);
+        arrayList = Arrays.copyOf(new Object[0], arrayList.length);
         size = 0;
     }
 
@@ -66,10 +54,7 @@ public class MyArrayList <E>{
     }
 
     public E get(int index) {
-//        Objects.checkIndex(index, size);
-        if (index < 0 || index >= size) {
-            throw new IndexOutOfBoundsException();
-        }
+        Objects.checkIndex(index, size);
         return (E) arrayList[index];
     }
 
@@ -77,5 +62,4 @@ public class MyArrayList <E>{
     public String toString() {
         return Arrays.toString(arrayList);
     }
-
 }

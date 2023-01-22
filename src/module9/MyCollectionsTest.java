@@ -4,17 +4,16 @@ import module9.arraylist.MyArrayList;
 
 public class MyCollectionsTest {
     public static void main(String[] args) {
-
         myArrayListMethodsTest();
     }
 
     public static void myArrayListMethodsTest() {
         System.out.println("\n" + "========== List initializing ==========");
-        MyArrayList<String> myArrayList = new MyArrayList<>(0);
+        MyArrayList<String> myArrayList = new MyArrayList<>();
         System.out.println(myArrayList);
 
         System.out.println("\n" + "========== add(); ==========");
-        for (int i = 0; i < 18; i++) {
+        for (int i = 0; i < 17; i++) {
             myArrayList.add(i + "e");
         }
         System.out.println(myArrayList);
@@ -28,6 +27,7 @@ public class MyCollectionsTest {
         System.out.println("\n" + "========== remove(); ==========");
         myArrayList.remove(1);
         System.out.println(myArrayList);
+        System.out.println("myArrayList.size() = " + myArrayList.size());
 
         System.out.println("\n" + "========== clear(); ==========");
         myArrayList.clear();
