@@ -17,8 +17,7 @@ public class InputStreamFileToConsoleTest {
                  Scanner scanner = new Scanner(fis)) {
                 while (scanner.hasNext()) {
                     String number = scanner.nextLine();
-                    if (number.matches("\\(\\d{3}\\)\\s\\d{3}-\\d{4}") ||
-                        number.matches("\\d{3}-\\d{3}-\\d{4}")) {
+                    if (number.matches("(\\(\\d{3}\\) |\\d{3}-)\\d{3}-\\d{4}")) {
                         System.out.println(number);
                     }
                 }
