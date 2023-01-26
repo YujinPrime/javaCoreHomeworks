@@ -3,7 +3,7 @@ package module10.task1;
 import java.io.*;
 import java.util.Scanner;
 
-public class InputStreamFileToConsoleTest {
+public class FileToConsoleTest {
     public static void main(String[] args) {
 
         printValidNumbers();
@@ -11,7 +11,7 @@ public class InputStreamFileToConsoleTest {
     }
 
     public static void printValidNumbers() {
-        File file = new File("src/module10/task1/file.txt");
+        File file = new File("src/module10/task1/file1.txt");
         if (file.exists()) {
             try (InputStream fis = new FileInputStream(file);
                  Scanner scanner = new Scanner(fis)) {
