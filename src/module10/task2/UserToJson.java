@@ -9,8 +9,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class UserToJson {
-    private String sourceFile = "src/module10/task2/file.txt";
-    private String jsonFile = "src/module10/task2/user.json";
+    private static final String SOURCE_FILE = "src/module10/task2/file.txt";
+    private static final String JSON_FILE = "src/module10/task2/user.json";
     private List<User> users = new ArrayList<>();
 
     public void usersFromTextToJson() {
@@ -19,8 +19,7 @@ public class UserToJson {
     }
 
     private void allUsersToList() {
-        File file = new File(sourceFile);
-
+        File file = new File(SOURCE_FILE);
         if (file.exists()) {
             try (InputStream fis = new FileInputStream(file);
                  Scanner scanner = new Scanner(fis)) {
@@ -38,13 +37,14 @@ public class UserToJson {
     }
 
     private void allUsersToJson() {
-        try (Writer fileWriter = new FileWriter(jsonFile)){
+        try (Writer fileWriter = new FileWriter(JSON_FILE)){
             Gson gson = new GsonBuilder()
                     .setPrettyPrinting()
                     .create();
             gson.toJson(users, fileWriter);
+            System.out.println("File has been created in path " + JSON_FILE);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
     }
 }

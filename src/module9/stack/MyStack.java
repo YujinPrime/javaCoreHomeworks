@@ -4,7 +4,6 @@ import module9.arraylist.MyArrayList;
 
 public class MyStack <E>{
     private MyArrayList<E> stack;
-    private int size = 0;
 
     public MyStack() {
         stack = new MyArrayList<>();
@@ -16,30 +15,27 @@ public class MyStack <E>{
 
     public void push(E element) {
         stack.add(element);
-        size++;
     }
 
     public void remove(int index) {
         stack.remove(index);
-        size--;
     }
 
     public void clear() {
         stack.clear();
-        size = 0;
     }
 
     public int size() {
-        return size;
+        return stack.size();
     }
 
     public E peek() {
-        return stack.get(stack.size() - 1);
+        return stack.get(size() - 1);
     }
 
     public E pop() {
         E elementToDelete = peek();
-        remove(size - 1);
+        remove(size() - 1);
         return elementToDelete;
     }
 
