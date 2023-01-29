@@ -45,18 +45,34 @@ public class FrequencyOfWords {
     }
 
     public void sortByValuesToConsole() {
-        int maxInterimValue = 0;
-        String maxInterimKey = null;
-        while (frequencyOfWords.size() != 0) {
-            for (Map.Entry<String, Integer> entry : frequencyOfWords.entrySet()) {
-                if (entry.getValue() > maxInterimValue){
-                    maxInterimValue = entry.getValue();
-                    maxInterimKey = entry.getKey();
-                }
+        Comparator<String> valueComparator = new Comparator<>() {
+            public int compare(String k1, String k2) {
+                int comp = frequencyOfWords.get(k2).compareTo(frequencyOfWords.get(k1));
+                if (comp == 0)
+                    return 1;
+                else
+                    return comp;
             }
-            frequencyOfWords.remove(maxInterimKey);
-            System.out.println(maxInterimKey + " " + maxInterimValue);
-            maxInterimValue = 0;
+        };
+        Map<String, Integer> sortedFrequencyOfWords = new TreeMap<>(valueComparator);
+        sortedFrequencyOfWords.putAll(frequencyOfWords);
+
+        for (Map.Entry<String, Integer> entry : sortedFrequencyOfWords.entrySet()) {
+            System.out.println(entry.getKey() + " " + entry.getValue());
         }
+
+//        int maxInterimValue = 0;
+//        String maxInterimKey = null;
+//        while (frequencyOfWords.size() != 0) {
+//            for (Map.Entry<String, Integer> entry : frequencyOfWords.entrySet()) {
+//                if (entry.getValue() > maxInterimValue){
+//                    maxInterimValue = entry.getValue();
+//                    maxInterimKey = entry.getKey();
+//                }
+//            }
+//            frequencyOfWords.remove(maxInterimKey);
+//            System.out.println(maxInterimKey + " " + maxInterimValue);
+//            maxInterimValue = 0;
+//        }
     }
 }
