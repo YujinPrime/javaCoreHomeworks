@@ -1,10 +1,12 @@
 package module9;
 
 import module9.arraylist.MyArrayList;
+import module9.hashmap.MyHashMap;
 import module9.linkedlist.MyLinkedList;
 import module9.queue.MyQueue;
 import module9.stack.MyStack;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 
 public class MyCollectionsTest {
@@ -16,7 +18,33 @@ public class MyCollectionsTest {
 
 //        myLinkedListMethodsTest();
 
-        myQueueMethodsTest();
+//        myQueueMethodsTest();
+
+        myHashMapMethodsTest();
+    }
+
+    public static void myHashMapMethodsTest() {
+        System.out.println("\n" + "++++++++++ HashMap initializing ++++++++++");
+        MyHashMap<String, Integer> myHashMap = new MyHashMap<>();
+
+        System.out.println("\n" + "========== put(); ==========");
+        for (int i = 0; i < 20; i++) {
+            myHashMap.put(i + "h", i+1);
+        }
+
+        System.out.println("\n" + "========== size(); ==========");
+        System.out.println("myHashMap.size() = " + myHashMap.size());
+
+        System.out.println("\n" + "========== remove(); ==========");
+        myHashMap.remove("6h");
+
+        System.out.println("\n" + "========== get(); ==========");
+        System.out.println("Element at index: " + myHashMap.get("10h"));
+
+        System.out.println("\n" + "========== clear(); ==========");
+        myHashMap.clear();
+
+
     }
 
     public static void myArrayListMethodsTest() {
