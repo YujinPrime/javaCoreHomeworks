@@ -6,49 +6,22 @@ import module9.linkedlist.MyLinkedList;
 import module9.queue.MyQueue;
 import module9.stack.MyStack;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-
 public class MyCollectionsTest {
     public static void main(String[] args) {
 
-//        myArrayListMethodsTest();
+        myArrayListMethodsTest();
 
-//        myStackMethodsTest();
+        myStackMethodsTest();
 
-//        myLinkedListMethodsTest();
+        myLinkedListMethodsTest();
 
-//        myQueueMethodsTest();
+        myQueueMethodsTest();
 
         myHashMapMethodsTest();
     }
 
-    public static void myHashMapMethodsTest() {
-        System.out.println("\n" + "++++++++++ HashMap initializing ++++++++++");
-        MyHashMap<String, Integer> myHashMap = new MyHashMap<>();
-
-        System.out.println("\n" + "========== put(); ==========");
-        for (int i = 0; i < 20; i++) {
-            myHashMap.put(i + "h", i+1);
-        }
-
-        System.out.println("\n" + "========== size(); ==========");
-        System.out.println("myHashMap.size() = " + myHashMap.size());
-
-        System.out.println("\n" + "========== remove(); ==========");
-        myHashMap.remove("6h");
-
-        System.out.println("\n" + "========== get(); ==========");
-        System.out.println("Element at index: " + myHashMap.get("10h"));
-
-        System.out.println("\n" + "========== clear(); ==========");
-        myHashMap.clear();
-
-
-    }
-
     public static void myArrayListMethodsTest() {
-        System.out.println("\n" + "++++++++++ ArrayList initializing ++++++++++");
+        System.out.println("\n++++++++++ ARRAYLIST INITIALIZING ++++++++++");
         MyArrayList<String> myArrayList = new MyArrayList<>();
         System.out.println(myArrayList);
 
@@ -74,7 +47,7 @@ public class MyCollectionsTest {
     }
 
     private static void myStackMethodsTest() {
-        System.out.println("\n" + "++++++++++ Stack initializing ++++++++++");
+        System.out.println("\n\n++++++++++ STACK INITIALIZING ++++++++++");
         MyStack<String> myStack = new MyStack<>(0);
         System.out.println(myStack);
 
@@ -104,7 +77,7 @@ public class MyCollectionsTest {
     }
 
     public static void myLinkedListMethodsTest() {
-        System.out.println("\n" + "++++++++++ LinkedList initializing ++++++++++");
+        System.out.println("\n\n++++++++++ LINKEDLIST INITIALIZING ++++++++++");
         MyLinkedList<String> myLinkedList = new MyLinkedList<>();
         System.out.println(myLinkedList);
 
@@ -132,7 +105,7 @@ public class MyCollectionsTest {
     }
 
     public static void myQueueMethodsTest() {
-        System.out.println("\n" + "++++++++++ Queue initializing ++++++++++");
+        System.out.println("\n\n++++++++++ QUEUE INITIALIZING ++++++++++");
         MyQueue<String> myQueue = new MyQueue<>();
         System.out.println(myQueue);
 
@@ -157,5 +130,36 @@ public class MyCollectionsTest {
         myQueue.clear();
         System.out.println("myQueue.size() = " + myQueue.size());
         System.out.println(myQueue);
+    }
+
+    public static void myHashMapMethodsTest() {
+        System.out.println("\n\n++++++++++ HASHMAP INITIALIZING ++++++++++");
+        MyHashMap<Integer, String> myHashMap = new MyHashMap<>();
+        System.out.println(myHashMap);
+
+        System.out.println("\n" + "========== put(); ==========");
+        myHashMap.put(1, "1");
+        myHashMap.put(2, "2");
+        myHashMap.put(3, "3");
+        myHashMap.put(9, "9");
+        myHashMap.put(17, "17");
+        myHashMap.put(18, "18");
+        System.out.println("MyHashMap before resizing:\n" + myHashMap);
+        myHashMap.put(16, "16");
+        System.out.println("MyHashMap after resizing and rehashing:\n" + myHashMap);
+
+        System.out.println("\n" + "========== size(); ==========");
+        System.out.println("MyHashMap size = " + myHashMap.size());
+
+        System.out.println("\n" + "========== remove(); ==========");
+        myHashMap.remove(2);
+        System.out.println("MyHashMap after removing the pair:\n" + myHashMap);
+
+        System.out.println("\n" + "========== get(); ==========");
+        System.out.println("Value of the key: " + myHashMap.get(9));
+
+        System.out.println("\n" + "========== clear(); ==========");
+        myHashMap.clear();
+        System.out.println(myHashMap);
     }
 }
