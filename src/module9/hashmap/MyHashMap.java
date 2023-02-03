@@ -25,15 +25,6 @@ public class MyHashMap <K, V>{
 
         @Override
         public String toString() {
-//            StringBuilder nodeRow = new StringBuilder();
-//            nodeRow.append("key=")
-//                   .append(key)
-//                   .append(", value=")
-//                   .append(value);
-//            if (next != null) {
-//                nodeRow.append("; ").append(next);
-//            }
-//            return nodeRow.toString();
             return "key=" + key + ", value=" + value;
         }
     }
@@ -49,7 +40,7 @@ public class MyHashMap <K, V>{
         size++;
     }
 
-    public void resize() {
+    private void resize() {
         capacity *= 2;
         Node<K, V>[] oldEntry = Arrays.copyOf(entry, entry.length);
         entry = new Node[capacity];
@@ -154,7 +145,6 @@ public class MyHashMap <K, V>{
             if (node == null) {
                 hashTable.append("[null]\n");
             } else {
-//                hashTable.append("[").append(node).append("]\n");
                 hashTable.append("[").append(node);
                 while (node.next != null) {
                     hashTable.append("; ").append(node.next);
@@ -163,7 +153,6 @@ public class MyHashMap <K, V>{
                 hashTable.append("]\n");
             }
         }
-
         return hashTable.toString();
     }
 }
