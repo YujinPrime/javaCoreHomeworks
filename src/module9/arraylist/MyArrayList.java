@@ -28,13 +28,10 @@ public class MyArrayList <E>{
     }
 
     private void ensureCapacity(int requiredCapacity) {
-        int newLength;
         if (arrayList.length == 0) {
-            newLength = DEFAULT_CAPACITY;
-            arrayList = Arrays.copyOf(arrayList, newLength);
+            arrayList = Arrays.copyOf(arrayList, DEFAULT_CAPACITY);
         }else if (requiredCapacity > arrayList.length) {
-            newLength = arrayList.length * 2;
-            arrayList = Arrays.copyOf(arrayList, newLength);
+            arrayList = Arrays.copyOf(arrayList, arrayList.length * 2);
         }
     }
 
@@ -45,7 +42,7 @@ public class MyArrayList <E>{
     }
 
     public void clear(){
-        arrayList = Arrays.copyOf(new Object[0], arrayList.length);
+        arrayList = new Object[arrayList.length];
         size = 0;
     }
 
@@ -60,6 +57,7 @@ public class MyArrayList <E>{
 
     @Override
     public String toString() {
-        return Arrays.toString(arrayList);
+        Object[] arrayListToConsole = Arrays.copyOf(arrayList, size);
+        return Arrays.toString(arrayListToConsole);
     }
 }
