@@ -121,20 +121,7 @@ public class MyHashMap <K, V>{
     }
 
     public void clear() {
-        for (int i = 0; i < capacity; i++) {
-            if (entry[i] != null) {
-                Node<K, V> tempNode;
-                Node<K, V> current = entry[i];
-                while (current != null) {
-                    tempNode = current.next;
-                    current.key = null;
-                    current.value = null;
-                    current.next = null;
-                    current = tempNode;
-                }
-                entry[i] = null;
-            }
-        }
+        entry = new Node[capacity];
         size = 0;
     }
 

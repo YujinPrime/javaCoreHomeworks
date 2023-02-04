@@ -57,17 +57,8 @@ public class MyLinkedList<E>{
     }
 
     public void clear() {
-        if (size != 0) {
-            for (int i = 0; i < size; i++) {
-                Node<E> node = first;
-                first = node.next;
-                node.prev = null;
-                node.next = null;
-                node.element = null;
-            }
-            last = null;
-            size = 0;
-        }
+        first = last = null;
+        size = 0;
     }
 
     public int size() {
