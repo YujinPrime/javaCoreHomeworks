@@ -13,10 +13,8 @@ public class MyArrayList <E>{
     }
 
     public MyArrayList(int initialCapacity) {
-        if (initialCapacity > 0) {
+        if (initialCapacity >= 0) {
             arrayList = new Object[initialCapacity];
-        }else if (initialCapacity == 0) {
-            arrayList = new Object[0];
         }else {
             throw new IllegalArgumentException("Incorrect initial capacity: " + initialCapacity);
         }
