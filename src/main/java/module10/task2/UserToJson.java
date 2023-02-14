@@ -9,8 +9,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class UserToJson {
-    private static final String SOURCE_FILE = "src/module10/task2/file.txt";
-    private static final String JSON_FILE = "src/module10/task2/user.json";
+    private static final String SOURCE_FILE = "src/main/java/module10/task2/file.txt";
+    private static final String JSON_FILE = "src/main/java/module10/task2/user.json";
     private List<User> users = new ArrayList<>();
 
     public void usersFromTextToJson() {

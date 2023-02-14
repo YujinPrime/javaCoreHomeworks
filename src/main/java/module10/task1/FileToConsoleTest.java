@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.Scanner;
 
 public class FileToConsoleTest {
-    private static final String FILE_PATH = "src/module10/task1/file.txt";
+    private static final String FILE_PATH = "src/main/java/module10/task1/file.txt";
     private static final String VALID_PHONE_NUMBER_PATTERN = "(\\(\\d{3}\\) |\\d{3}-)\\d{3}-\\d{4}";
 
     public static void main(String[] args) {

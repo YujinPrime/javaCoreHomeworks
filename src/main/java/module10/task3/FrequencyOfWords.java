@@ -6,7 +6,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class FrequencyOfWords {
-    private static final String FILE_PATH = "src/module10/task3/words.txt";
+    private static final String FILE_PATH = "src/main/java/module10/task3/words.txt";
     private String allWords;
     private Map<String, Integer> frequencyOfWords = new HashMap<>();
 
@@ -47,11 +47,7 @@ public class FrequencyOfWords {
     public void sortByValuesToConsole() {
         Comparator<String> valueComparator = new Comparator<>() {
             public int compare(String k1, String k2) {
-                int comp = frequencyOfWords.get(k2).compareTo(frequencyOfWords.get(k1));
-                if (comp == 0)
-                    return 1;
-                else
-                    return comp;
+                return frequencyOfWords.get(k1).compareTo(frequencyOfWords.get(k2)) > 0 ? -1 : 1;
             }
         };
         Map<String, Integer> sortedFrequencyOfWords = new TreeMap<>(valueComparator);
