@@ -66,5 +66,11 @@ public class Streams {
             mixedElements.add(secondIterator.next());
         }
         return mixedElements.stream();
+
+//        Iterator<T> secondIterator = second.iterator();
+//        return first
+//                .flatMap(element -> secondIterator.hasNext()
+//                        ? Stream.of(element, secondIterator.next())
+//                        : Stream.empty());
     }
 }
