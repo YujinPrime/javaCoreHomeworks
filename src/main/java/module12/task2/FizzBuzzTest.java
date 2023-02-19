@@ -19,7 +19,7 @@ public class FizzBuzzTest {
         executorService.shutdown();
     }
 
-    private static void fizzBuzzPrint(FizzBuzzService fizzBuzzService) {
+    private static synchronized void fizzBuzzPrint(FizzBuzzService fizzBuzzService) {
         while (fizzBuzzService.isNumberLessEqualsN()) {
             if (fizzBuzzService.getQueue().isEmpty()) {
                 try {
